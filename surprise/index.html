@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JustASimplePage</title>
+        <meta property="og:image" content="https://image.flaticon.com/icons/png/128/983/983048.png">
+    <meta name="twitter:card" content="https://image.flaticon.com/icons/png/128/983/983048.png">
+    <meta name="description" content="My New Project Hope You Like it" />
+    <link rel="icon" href="https://image.flaticon.com/icons/png/128/983/983048.png" type="image/gif" sizes="16x16">
+        <style>
+            body { 
+              background: url(images/bg.jpg) no-repeat center center fixed; 
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <p id="hehe1">⚠️Sorry We Had Some Error Loading Page Click The Button</p>
+            <button id="hehe2" onclick="rick()">Reload()</button>
+        </center>
+        <script>
+            const hehe = new Audio('https://github.com/mj02010/myweb/blob/main/assets/img/mp3_Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(BASS%20BOOSTED%20EAR%20RAPE).mp3?raw=true');
+            window.onload = (event) => {
+                console.log('page is fully loaded');
+            };
+            function rick(){
+                document.getElementById("hehe1").style.display = "none";
+                document.getElementById("hehe2").style.display = "none";
+                document.body.style.backgroundImage = "url('https://www.icegif.com/wp-content/uploads/rickroll-icegif-4.gif')";
+                for(var i=0;i<1000;i++){
+                    var x = 3000*i
+                    setTimeout(function(){hehe.play();}, x);
+                    console.log(i);
+                    
+                }
+            }
+        </script>
+    </body>
+</html>

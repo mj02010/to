@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO list</title>
+    <link rel="stylesheet" href="./styling.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="item">
+        <div class="wrap">
+          <h1 class="title">
+            TODO L<span style="color: #fad1d9">i</span>ST BY Aahil
+          </h1>
+          <input
+            type="text"
+            class="inputBar"
+            placeholder="Type..."
+            id="inputBar"
+            onkeyup="disable()"
+          />
+          <button class="button-submit disabled" id="main-btn" onclick="todoCreate()">
+            
+            <ion-icon
+              name="add-circle-outline"
+              style="font-size: 30px"
+            ></ion-icon>
+          </button>
+          <span class="circle"></span>
+          <div class="todo-area" id="eee"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./todo.js"></script>
+  </body>
+</html>

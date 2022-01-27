@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./pic.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗣SPEECH TO TEXT📝</title>
+    <style>
+        body{
+            background-image: linear-gradient(270deg,yellow,red);
+        }
+        div{
+            text-align: center;
+        }
+        #textbox{
+            display: block;
+    width: 70%;
+    height: 23.375rem;
+    margin: auto;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-top: 2%;
+    font-size: 15px;
+        }
+        button{
+            font-size: 30px;
+            margin: auto;
+        }
+        p{
+            font-size: 30px;
+            font-style: oblique;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>speech to text converter</h1>
+        <textarea id="textbox" cols="40" rows="10"></textarea><br>
+        <button id="start">Start</button>
+        <button id="stop">stop</button>
+        <p id="instructions">press start to continue</p>
+    </div>
+    <div className={classes.footer}>
+        <Typography variant="body1" component="h2">
+          <b>Created by</b>
+          <a className={classes.link} href="https://aahilp.tk/">Aahil</a> 
+          
+        </Typography>
+        
+      </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+    var textbox = $("#textbox");
+    var instructions = $("#instructions");
+    var content = '';
+    recognition.onstart = function(){
+        instructions.text("voice recognition is on");
+    }
+    $('#stop').click(function(event){
+        recognition.stop();
+        instructions.text("press start to continue");
+    })
+    recognition.onerror= function(){
+        instructions.text("unable to recognize");
+    }
+    recognition.onresult= function(event){
+        var current = event.resultIndex;
+        var transcript = event.results[current][0].transcript;
+        content+=transcript;
+        textbox.val(content);
+    }
+    recognition.continuous = true;
+    $("#start").click(function(event){
+        if(content.length) {
+            content+=''
+        }
+        recognition.start() 
+    })
+
+</script>
+</html>
